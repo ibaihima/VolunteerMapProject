@@ -7,7 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'rest-client'
 puts "📃 Seeding data..."
-
+puts "Clearing db..."
+Charity.destroy_all
+User.destroy_all
+Review.destroy_all
 
 
 
@@ -18,9 +21,9 @@ rm = RestClient.get "https://data.cityofnewyork.us/resource/i4kb-6ab6.json"
 charity_array = JSON.parse(rm)
 charity_array.each do |org|
     c = Charity.create(
-        # lat: org["latitude"],
-        # long: org["longitude"],
-        website: org["website"],
+        lat: org["latitude"],
+        long: org["longitude"],
+        website: org["website"]["url"],
         mission: org ["mission"],
         program_description: org ["volunteer_program_description"]
     )

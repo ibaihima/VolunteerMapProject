@@ -1,7 +1,7 @@
 class CharitiesController < ApplicationController
 
     def index 
-        render josn: Charity.all, status: :ok
+        render json: Charity.all, status: :ok
     end
 
     def show  
