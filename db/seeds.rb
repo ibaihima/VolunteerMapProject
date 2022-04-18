@@ -20,20 +20,20 @@ rm = RestClient.get "https://data.cityofnewyork.us/resource/i4kb-6ab6.json"
 
 charity_array = JSON.parse(rm)
 charity_array.each do |org|
-    c = Charity.create(
+    @c = Charity.create(
+        organization_name: org["organization_name"],
         lat: org["latitude"],
         long: org["longitude"],
         website: org["website"]["url"],
-        mission: org ["mission"],
-        program_description: org ["volunteer_program_description"]
+        mission: org["mission"],
+        program_description: org["volunteer_program_description"]
     )
 
-
+    
+end
     user1 = User.create(username: "ibaihima" ,  password: "iba" )
     user2 = User.create(username: "klemense" ,  password: "klem" )
     
-    Review.create(rating: 4.2, review_content: "This was a really good site I recommend it for anyone.", user_id: user1.id, charity_id: c.id  )
-    Review.create(rating: 2.1, review_content: "This place was kinda bad I dont recommend anyone to check it out.", user_id: user2.id, charity_id: c.id)
-end
-
+    Review.create(rating: 4.2, review_content: "This was a really good site I recommend it for anyone.", user_id: user1.id, charity_id: @c.id  )
+    Review.create(rating: 2.1, review_content: "This place was kinda bad I dont recommend anyone to check it out.", user_id: user2.id, charity_id: @c.id)
 puts "✅ Done seeding"
