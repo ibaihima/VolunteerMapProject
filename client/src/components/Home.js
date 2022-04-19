@@ -1,5 +1,6 @@
 import Catalog from './Catalog'
-import Map from './Map';
+import Map
+ from './Map';
 function Home() {
     return(
         <div className="home-page">
