@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-    skip_before_action :authorized, only: [:create,:index]
+    skip_before_action :authorized
+    # , only: [:create,:index, :reviewget]
 
     def create 
-        user = User.create!(user_params)
+        user = User.create(user_params)
         if user.valid?
             session[:user_id] = user.id
             render json: user, status: :created

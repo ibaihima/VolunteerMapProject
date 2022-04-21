@@ -11,10 +11,11 @@ function NavBar({user,setUser}){
           }
         });
       }
+      
     return(
-        <header className="header">
-        <div>
-          <Link to="/">Home</Link>
+        <header className="nav">
+        <div className="homeLogoBox">
+         <img className="homeLogo" src= "./assets/home-logo.png" alt="Volunteer logo"/>
         </div>
         <div>
             <Link to="your_reviews">Your Reviews</Link>

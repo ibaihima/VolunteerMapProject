@@ -35,5 +35,6 @@ end
     user2 = User.create(username: "klemense" ,  password_digest: "klem" )
     
     Review.create(rating: 4.2, review_content: "This was a really good site I recommend it for anyone.", user_id: user1.id, charity_id: @c.id  )
+    Review.create(rating: 2.2, review_content: "Mid.", user_id: user1.id, charity_id: @c.id)
     Review.create(rating: 2.1, review_content: "This place was kinda bad I dont recommend anyone to check it out.", user_id: user2.id, charity_id: @c.id)
 puts "✅ Done seeding"

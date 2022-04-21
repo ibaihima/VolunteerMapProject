@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import NavBar from './NavBar';
 import Home from './Home';
-import Login from "./UserHandling/Login";
+import Login from "./UserHandling/Login"; 
 import YourReviews from './YourReviews';
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 

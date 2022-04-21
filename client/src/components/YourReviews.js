@@ -3,50 +3,46 @@ import ReviewCard from './ReviewCard';
 import {v4 as uuid} from 'uuid'
 
 
-function YourReviews({removeCharity}){
+function YourReviews({reviews, removeReview}){
+  const [userReviews, setUserReviews] = useState([])
 
-    const [userReviews, setUserReviews] = useState([])
-    useEffect(() => {
-    let current_user = JSON.parse(localStorage.getItem('user'))
-    fetch(`[TODO]`)
+  useEffect(() => {
+    // let current_user = JSON.parse(localStorage.getItem('user'))
+    fetch(`/reviews/1`)
     .then(res => res.json())
     .then(data =>{
-        if (data.errorMessage) {
-        setUserReviews([])
-        }
-        else {
-            setUserReviews(data)
-        }
-        console.log(data)
+      setUserReviews(data)
+      console.log(userReviews)
     })
-    },[])
+  },[])
 
-    function handleRemoveCharity(charity){
-        fetch(`[TODO]`,{
-          method:"DELETE",
-        }).then (()=>{
-          console.log("delete call",userReviews)
-          setUserReviews(userReviews.filter(el=> {
-            console.log("after delete", userReviews)
-            return (el.id !==charity.id)
-          }))
-            
-        })
-      }
+  function handleRemoveReview(review){
+    fetch(`http://localhost:3000/reviews/1`,{
+      method:"DELETE",
+    }).then (()=>{
+      console.log("delete call",userReviews)
+      setUserReviews(userReviews.filter(el=> {
+        console.log("after delete", userReviews)
+        return (el.id !==review.id)
+      }))
+        
+    })
+  }
+
+  // const reviewGen = (userReviews == []) ? null : userReviews.map((review) => {
+  //   return(
+  //   <ReviewCard key={uuid()} review={review} removeReview = {handleRemoveReview}/>
+  //   )})
 
     return (
-        <div className='row'>
-        {       
-            userReviews.map((charity) => {
-                return(
-
-                <ReviewCard key={uuid()} review={charity} removeCharity = {handleRemoveCharity}/>
-                )
-            })
+      <div> 
+        {
+          console.log(userReviews)
         }
-
-    </div>
+        {/* {reviewGen} */}
+      </div>
     )
+  
 
 }
 
