@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2022_04_15_155704) do
 
   create_table "charities", force: :cascade do |t|
     t.string "organization_name"
-    t.string "lat"
-    t.string "long"
+    t.float "lat"
+    t.float "long"
     t.string "website"
     t.string "mission"
     t.string "program_description"

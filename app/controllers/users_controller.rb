@@ -1,21 +1,23 @@
 class UsersController < ApplicationController
-    def show 
-        user = User.find(session[:user_id])
-        render json: user 
-    end 
-
-    def index 
-        render json: User.all 
-    end 
+    skip_before_action :authorized, only: [:create,:index]
 
     def create 
         user = User.create!(user_params)
-        byebug
         if user.valid?
+            session[:user_id] = user.id
             render json: user, status: :created
         else 
             render json: {errors: ["User not valid"]},status: :unprocessable_entity
         end 
+    end 
+
+    def show 
+        current_user = User.find(session[:user_id])
+        render json: current_user
+    end 
+
+    def index 
+        render json: User.all 
     end 
 
     private

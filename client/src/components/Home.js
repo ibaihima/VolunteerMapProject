@@ -11,7 +11,7 @@ function Home() {
     useEffect(() => {
       fetch("/charities")
         .then((r) => r.json())
-        .then(setCharities);
+        .then((r) => setCharities(r));
     }, []);
   
     console.log(charities)

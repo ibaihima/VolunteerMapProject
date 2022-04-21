@@ -3,5 +3,5 @@ class User < ApplicationRecord
     has_many :reviews, dependent: :destroy
     has_many :charities, through: :reviews
 
-    validates :username, :password_digest, presence: true
+    validates :username, presence: true, uniqueness: true 
 end
