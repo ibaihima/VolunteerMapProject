@@ -32,3 +32,11 @@ h1{
   margin-top: 500px;
   color: black;
 }
+
+.form{
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

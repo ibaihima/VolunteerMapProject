@@ -1,10 +1,16 @@
 class UsersController < ApplicationController
+    def show 
+        user = User.find(session[:user_id])
+        render json: user 
+    end 
+
     def index 
         render json: User.all 
     end 
 
     def create 
-        user = User.create(user_params)
+        user = User.create!(user_params)
+        byebug
         if user.valid?
             render json: user, status: :created
         else 
