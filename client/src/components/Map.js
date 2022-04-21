@@ -16,6 +16,8 @@ function Map({mapCharities}) {
     <LoadScript
       googleMapsApiKey="AIzaSyAqSZSTEoQOQoh0Dh2IzVXgG0kA1l7agWQ"
     >
+
+
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}

@@ -1,12 +1,12 @@
-
-function Catalog(){
+import CardInfo from './CardInfo'
+function Catalog({mapInfo, submitText}){
     return(
         <div className= "catalog"> 
-            <div className="top-catalog">
-                
+            <div className="topCatalog">
+                <CardInfo mapInfo={mapInfo} submitText={submitText} />
             </div>
-            <div className="bottom-catalog"> 
-
+            <div className="bottomCatalog"> 
+            
             </div>
         </div>
 

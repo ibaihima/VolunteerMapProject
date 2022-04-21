@@ -9,7 +9,12 @@ class ReviewsController < ApplicationController
     end 
 
     def create 
-
+        review = Review.create(review_params)
+        if review
+            render json: review, status: :created
+        else 
+            render json: {error: "not created"}, status: :unprocessable_entity
+        end
     end 
 
     def update 
