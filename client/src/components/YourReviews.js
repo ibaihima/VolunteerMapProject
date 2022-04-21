@@ -3,7 +3,7 @@ import ReviewCard from './ReviewCard';
 import {v4 as uuid} from 'uuid'
 
 
-function YourReviews({removeCharity}){
+function YourReviews({removeReview}){
 
     const [userReviews, setUserReviews] = useState([])
     useEffect(() => {
@@ -21,14 +21,14 @@ function YourReviews({removeCharity}){
     })
     },[])
 
-    function handleRemoveCharity(charity){
+    function handleRemoveReview(review){
         fetch(`[TODO]`,{
           method:"DELETE",
         }).then (()=>{
           console.log("delete call",userReviews)
           setUserReviews(userReviews.filter(el=> {
             console.log("after delete", userReviews)
-            return (el.id !==charity.id)
+            return (el.id !==review.id)
           }))
             
         })
@@ -37,10 +37,9 @@ function YourReviews({removeCharity}){
     return (
         <div className='row'>
         {       
-            userReviews.map((charity) => {
+            userReviews.map((review) => {
                 return(
-
-                <ReviewCard key={uuid()} review={charity} removeCharity = {handleRemoveCharity}/>
+                <ReviewCard key={uuid()} review={review} removeReview = {handleRemoveReview}/>
                 )
             })
         }

@@ -1,4 +1,9 @@
 function CardInfo({mapInfo, submitText}){
+
+    function handleSubmit(charity){
+        charity.preventDefault();
+        console.log(charity)
+    }
     return(
 <div className="wrapper">
             <div className="container">
@@ -8,20 +13,19 @@ function CardInfo({mapInfo, submitText}){
                         <div className="details">
                             <h1>{mapInfo.organization_name}</h1>
                         </div>
-                        <div>
-                        <button className="list" >Add To List</button>                         
-                        </div>
-                        <a href={mapInfo.website}>Go Support</a>
+                        <a href={mapInfo.website}>Go Support</a> 
+                            <form >
+                                <input className="textBox" type="text" placeholder="Submit a review" onSubmit={handleSubmit}/> 
+                            </form>
                     </div>
                     <div className='right'>
                          <p className ='details'>{mapInfo.program_description}</p>
                     </div>
-                    <div>
-                        <input className="textBox" type="text" name="text" placeholder="Submit a review" onSubmit={(review) => submitText(review)} /> 
-                    </div>
+
                 </div>
             </div>
         </div>               
+
     )
 }
 
