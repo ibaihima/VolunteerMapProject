@@ -33,5 +33,4 @@ class ReviewsController < ApplicationController
         params.permit(:user_id, :charity_id, :rating, :review_content)
     end
 
-
 end

@@ -37,19 +37,22 @@ function Home() {
       )
     }
 
-    function submitReview(){
-      fetch("/reviews",{
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({})
-       })
-      .then((r) => r.json())
-      .then(setReviews)
-    }
-  
+
+
+    // function submitReview(charity){
+    //   fetch("/reviews",{
+    //     method: "POST",
+    //     headers: {
+    //     "Content-Type": "application/json",
+    //     Accept: "application/json",
+    //   },
+    //   body: JSON.stringify({
+
+    //   })
+    //    })
+    //   .then((r) => r.json())
+    //   .then(setReviews)
+    // }
         return(
         <Marker onClick={handleClick}
           icon={{
@@ -67,10 +70,14 @@ function Home() {
       })
       )
     }
+    function renderReview(charity){
+      charity.preventDefault();
+      console.log(charity)
+    }
     return(
         <div className="home-page">
             <div className="rightPage">
-                <Catalog mapInfo={eachCharity}  />
+                <Catalog mapInfo={eachCharity} submitText={renderReview}  />
                 <Map mapCharities={mapCharities()}/>
             </div>
         </div>

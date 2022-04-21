@@ -21,6 +21,11 @@ class UsersController < ApplicationController
         render json: User.all 
     end 
 
+    def show_review
+        user = User.find_by(id: params[:user_id])
+        render json: user
+    end
+
     private
 
     def user_params
