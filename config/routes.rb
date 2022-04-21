@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-  
   resources :reviews
   resources :charities, only: [:show, :index]
   resources :users, only: [:create, :index]
@@ -10,7 +8,8 @@ Rails.application.routes.draw do
   post "/signup", to: "users#create"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-  get "/show_review", to: "users#show"
+  get "/show_review", to: "users#show_review"
 
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
+  
 end

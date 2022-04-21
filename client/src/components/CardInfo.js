@@ -1,9 +1,25 @@
+import React, {useState} from "react";
+
 function CardInfo({mapInfo, submitText}){
+    const [reviewContent, setReviewContent] = useState("")
+
+    function handleChange(charity){
+        setReviewContent(charity.target.value)
+    }
 
     function handleSubmit(charity){
-        charity.preventDefault();
-        console.log(charity)
+            fetch("/reviews",{
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            body: JSON.stringify({reviewContent})
+            })
+            .then((r) => r.json())
     }
+    
+
     return(
 <div className="wrapper">
             <div className="container">
@@ -15,7 +31,8 @@ function CardInfo({mapInfo, submitText}){
                         </div>
                         <a href={mapInfo.website}>Go Support</a> 
                             <form >
-                                <input className="textBox" type="text" placeholder="Submit a review" onSubmit={handleSubmit}/> 
+                                <input className="textBox" type="text" placeholder="Submit a review" onChange={(charity) => handleChange(charity)}/> 
+                                <button onClick={(e)=>handleSubmit(e)}> Enter </button>
                             </form>
                     </div>
                     <div className='right'>

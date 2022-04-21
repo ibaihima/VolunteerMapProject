@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2022_04_15_155704) do
   create_table "reviews", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "charity_id", null: false
-    t.float "rating"
     t.string "review_content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
