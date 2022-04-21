@@ -13,14 +13,14 @@ function Login({ onLogin }) {
         {showLogin? (
             <>
                 <LoginForm onLogin={onLogin}/>
-                <p>Don't have an account?
+                <p className="signin_prompt">Don't have an account?
                 <button onClick={() => setShowLogin(false)}>Sign Up</button>
                 </p>
             </>
         ) : (
             <>
                 <SignUpForm onLogin={onLogin}/>
-                <p>Already have an account?
+                <p className="signin_prompt">Already have an account?
                 <button onClick={() => setShowLogin(true)}>Log in </button>
                 </p>
             </>
