@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function CardInfo({mapInfo, submitText}){
+function CardInfo({mapInfo}){
     const [reviewContent, setReviewContent] = useState("")
 
     function handleChange(charity){
@@ -8,13 +8,19 @@ function CardInfo({mapInfo, submitText}){
     }
 
     function handleSubmit(charity){
+            charity.preventDefault()
+            console.log(reviewContent)
             fetch("/reviews",{
                 method: "POST",
                 headers: {
                 "Content-Type": "application/json",
-                Accept: "application/json",
+                Accept: "application/json"  ,
             },
-            body: JSON.stringify({reviewContent})
+            body: JSON.stringify({
+                "review_content": reviewContent,
+                "user_id": 5,
+                "charity_id": 353
+            })
             })
             .then((r) => r.json())
     }
@@ -30,9 +36,8 @@ function CardInfo({mapInfo, submitText}){
                             <h1>{mapInfo.organization_name}</h1>
                         </div>
                         <a href={mapInfo.website}>Go Support</a> 
-                            <form >
+                            <form onSubmit = {handleSubmit} >
                                 <input className="textBox" type="text" placeholder="Submit a review" onChange={(charity) => handleChange(charity)}/> 
-                                <button onClick={(e)=>handleSubmit(e)}> Enter </button>
                             </form>
                     </div>
                     <div className='right'>
