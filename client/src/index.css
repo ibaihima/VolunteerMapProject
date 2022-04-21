@@ -6,13 +6,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.mid_nav_items{
+  padding: 0 .5em 0 .5em;
+
+}
 
 .homeLogo{
   height: 100%;
-  width: 75px
+  width: 75px;
+  margin-left: 1em;
 }
+
 .nav {
-  background-color: #db91c9;
+  background-color: #e6d6b3;
   position: relative;
   display: block;
   min-height: 1em

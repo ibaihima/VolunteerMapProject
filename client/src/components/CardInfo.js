@@ -1,7 +1,12 @@
 import React, {useState} from "react";
 
-function CardInfo({mapInfo}){
+function CardInfo({mapInfo, charityId}){
     const [reviewContent, setReviewContent] = useState("")
+    const [currentUser, setCurrentUser] = useState(null)
+
+    fetch("/me")
+    .then((r)=> r.json())
+    .then((data) => setCurrentUser(data.id))
 
     function handleChange(charity){
         setReviewContent(charity.target.value)
@@ -9,7 +14,6 @@ function CardInfo({mapInfo}){
 
     function handleSubmit(charity){
             charity.preventDefault()
-            console.log(reviewContent)
             fetch("/reviews",{
                 method: "POST",
                 headers: {
@@ -18,11 +22,12 @@ function CardInfo({mapInfo}){
             },
             body: JSON.stringify({
                 "review_content": reviewContent,
-                "user_id": 5,
-                "charity_id": 353
+                "user_id": currentUser,
+                "charity_id": charityId
             })
             })
             .then((r) => r.json())
+            charity.target.reset()
     }
     
 
@@ -54,5 +59,3 @@ function CardInfo({mapInfo}){
 export default CardInfo; 
 
                 
-
-                // {mapInfo.program_description}

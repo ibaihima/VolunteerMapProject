@@ -4,11 +4,11 @@ import {v4 as uuid} from 'uuid'
 
 
 function YourReviews({reviews, removeReview}){
-  const [userReviews, setUserReviews] = useState([])
+  const [userReviews, setUserReviews] = useState("")
 
   useEffect(() => {
     // let current_user = JSON.parse(localStorage.getItem('user'))
-    fetch(`/reviews/1`)
+    fetch(`/me`)
     .then(res => res.json())
     .then(data =>{
       setUserReviews(data)
@@ -37,7 +37,7 @@ function YourReviews({reviews, removeReview}){
     return (
       <div> 
         {
-          console.log(userReviews)
+          console.log(userReviews.charities)
         }
         {/* {reviewGen} */}
       </div>

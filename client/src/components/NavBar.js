@@ -17,8 +17,9 @@ function NavBar({user,setUser}){
         <div className="homeLogoBox">
          <img className="homeLogo" src= "./assets/home-logo.png" alt="Volunteer logo"/>
         </div>
-        <div>
-            <Link to="your_reviews">Your Reviews</Link>
+        <div className="mid_nav">
+            <Link className="mid_nav_items" to ="home">Home</Link>
+            <Link className="mid_nav_items" to="your_reviews">Your Reviews</Link>
         </div>
         <div>
           {user ? (
