@@ -37,11 +37,9 @@ function CardInfo({mapInfo, charityId}){
                 <div className="top"></div>
                 <div className="bottom">
                     <div className="left">
-                        <div className="details">
-                            <h1>{mapInfo.organization_name}</h1>
-                        </div>
-                        <a href={mapInfo.website}>Go Support</a> 
-                            <form onSubmit = {handleSubmit} >
+                            <h1 className="details">{mapInfo.organization_name}</h1>
+                        <a id="weblink" href={mapInfo.website}>Check them out!</a> 
+                            <form className="submit_form" onSubmit = {handleSubmit} >
                                 <input className="textBox" type="text" placeholder="Submit a review" onChange={(charity) => handleChange(charity)}/> 
                             </form>
                     </div>

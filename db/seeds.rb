@@ -31,10 +31,5 @@ charity_array.each do |org|
 
     
 end
-    user1 = User.create(username: "ibaihima" ,  password_digest: "iba" )
-    user2 = User.create(username: "klemense" ,  password_digest: "klem" )
     
-    Review.create(review_content: "This was a really good site I recommend it for anyone.", user_id: user1.id, charity_id: @c.id  )
-    Review.create(review_content: "Mid.", user_id: user1.id, charity_id: @c.id)
-    Review.create(review_content: "This place was kinda bad I dont recommend anyone to check it out.", user_id: user2.id, charity_id: @c.id)
 puts "✅ Done seeding"

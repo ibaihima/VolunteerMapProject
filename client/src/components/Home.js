@@ -9,6 +9,7 @@ function Home() {
     const [charities, setCharities] = useState([]);
     const [clickedCharity, setClickedCharity] = useState("")
     const [reviews, setReviews] = useState([]);
+    
     useEffect(() => {
       fetch("/charities")
         .then((r) => r.json())
