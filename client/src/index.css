@@ -122,14 +122,11 @@ code {
   position: relative;
   float: left;
   color: #574948 ;
+  padding: 0 5px 0 5px;
 }
 
 .left {
   height: 250px
-}
-
-.right {
-  height: 250px;
 }
  
 .wrapper .container .bottom .right {
@@ -137,6 +134,11 @@ code {
   background: #A6CDDE;
   color: #faefd2;
   float: right;
+  height: 250px;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: flex;
+  flex-direction: column;
 } 
  
 .wrapper .container .bottom .right .details {
@@ -216,4 +218,25 @@ code {
   font-size: 1.5em;
   font-style: italic;
   color: #574948
+}
+
+.edit_form{
+  padding-top: 1em;
+  padding-right: 1em;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.edit_form label{
+  padding-right: .5em;
+}
+
+.album_remove_button{
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 1em;
 }

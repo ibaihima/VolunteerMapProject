@@ -16,7 +16,7 @@ function ReviewCard({review, removeReview, handleSubmit, handleChange,handleText
                     <div className='right'>
                         <h3 className="review_text">Your Review:</h3>
                         <h3>{review.review_content}</h3>
-                        <button id="album_remove_button" onClick={() => removeReview(review)}>Remove review</button>
+                        <button className="album_remove_button" onClick={() => removeReview(review)}>Remove review</button>
                         <form className='edit_form' onSubmit={handleSubmit} onChange={()=>handleChange(review)}> 
                             <label>Edit Review</label>
                             <input className="textBox" type="text" onChange={handleText}/> 
