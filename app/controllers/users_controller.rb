@@ -22,9 +22,19 @@ class UsersController < ApplicationController
     end 
 
     def show_review
-        user = User.find_by(id: params[:user_id])
-        render json: user
+        user = User.find(session[:user_id])
+        render json: user, serializer: UserWithReviewsSerializer 
     end
+
+    def show_charity
+        user = User.find(session[:user_id])
+        render json: user, serializer: UserWithCharitiesSerializer 
+    end 
+
+    # def show 
+    #     scientist = Scientist.find_by!(id: params[:id])
+    #     render json: scientist, serializer: ScientistWithPlanetsSerializer
+    # end 
 
     private
 

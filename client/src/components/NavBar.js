@@ -21,7 +21,7 @@ function NavBar({user,setUser}){
             <Link className="mid_nav_items" to ="home">Home</Link>
             <Link className="mid_nav_items" to="your_reviews">Your Reviews</Link>
         </div>
-        <div>
+        <div className="log_stuff">
           {user ? (
             <button onClick={handleLogoutClick}>Logout</button>
           ) : (

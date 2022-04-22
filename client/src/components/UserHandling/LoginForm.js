@@ -32,7 +32,7 @@ function LoginForm({onLogin}){
     return(
         <div>
         <form className="form" onSubmit={handleSubmit}>
-            <label htmlFor="username">
+            <label htmlFor="username" className="login_element">
                 Username
                 <br/>
             </label>
@@ -43,7 +43,7 @@ function LoginForm({onLogin}){
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 />
-            <label htmlFor="password"> 
+            <label htmlFor="password" className="login_element"> 
                 Password
                 <br/>
             </label>
@@ -53,7 +53,7 @@ function LoginForm({onLogin}){
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 />
-            <button type="submit">Login</button> 
+            <button className="login_button" type="submit">Login</button> 
         </form>
         </div>
     )

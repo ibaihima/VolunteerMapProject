@@ -34,7 +34,7 @@ function SignUpForm({ onLogin }) {
   return (
     <div>
     <form className="form" onSubmit={handleSubmit}>
-        <label htmlFor="username">
+        <label htmlFor="username" className="login_element">
             Username
         </label>
             <input
@@ -44,7 +44,7 @@ function SignUpForm({ onLogin }) {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             />
-        <label htmlFor="password"> 
+        <label htmlFor="password" className="login_element"> 
             Password
         </label>
             <input
@@ -54,7 +54,7 @@ function SignUpForm({ onLogin }) {
             onChange={(e) => setPassword(e.target.value)}
             autoComplete="current-password"
             />
-            <label htmlFor="password"> 
+            <label htmlFor="password" className="login_element"> 
             Confirm Password
         </label>
             <input
@@ -64,7 +64,7 @@ function SignUpForm({ onLogin }) {
             onChange={(e) => setPasswordConfirmation(e.target.value)}
             autoComplete="current-password"
             />
-        <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button> 
+        <button className="login_button" type="submit">{isLoading ? "Loading..." : "Sign Up"}</button> 
     </form>
     </div>
   );

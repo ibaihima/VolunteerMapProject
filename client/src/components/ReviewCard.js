@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function ReviewCard({charity, removeCharity}) {
+function ReviewCard({review, removeReview}) {
     return(
         <div className="wrapper">
             <div className="container">
@@ -9,15 +9,14 @@ function ReviewCard({charity, removeCharity}) {
                 <div className="bottom">
                     <div className="left">
                         <div className="details">
-                            <img src={charity.album_cover} alt={charity.album_title} />
+                        <h3 className='album_title'>{review.charity.organization_name}</h3>
                         </div>
                         <div>                    
                         </div>
                     </div>
                     <div className='right'>
-                        <h3 className='album_title'>{charity.album_title}</h3>
-                        <h3 className='album_artist'>{charity.album_artist}</h3>
-                        <button id="album_remove_button" onClick={() => removeCharity(charity)}>Remove review</button>
+                        <h3>{review.review_content}</h3>
+                        <button id="album_remove_button" onClick={() => removeReview(review)}>Remove review</button>
                     </div>
                 </div>
             </div>

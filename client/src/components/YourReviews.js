@@ -4,23 +4,21 @@ import {v4 as uuid} from 'uuid'
 
 
 function YourReviews({reviews, removeReview}){
-  const [userReviews, setUserReviews] = useState("")
+  const [userReviews, setUserReviews] = useState([])
 
   useEffect(() => {
-    // let current_user = JSON.parse(localStorage.getItem('user'))
-    fetch(`/me`)
+    fetch(`/reviews/users/me`)
     .then(res => res.json())
     .then(data =>{
       setUserReviews(data)
-      console.log(userReviews)
     })
   },[])
 
+
   function handleRemoveReview(review){
-    fetch(`http://localhost:3000/reviews/1`,{
+    fetch(`http://localhost:3000/reviews/${review.id}`,{
       method:"DELETE",
     }).then (()=>{
-      console.log("delete call",userReviews)
       setUserReviews(userReviews.filter(el=> {
         console.log("after delete", userReviews)
         return (el.id !==review.id)
@@ -29,17 +27,22 @@ function YourReviews({reviews, removeReview}){
     })
   }
 
-  // const reviewGen = (userReviews == []) ? null : userReviews.map((review) => {
-  //   return(
-  //   <ReviewCard key={uuid()} review={review} removeReview = {handleRemoveReview}/>
-  //   )})
+  const reviewGen = (userReviews == []) ? null : userReviews.map((review) => {
+    return(
+    <ReviewCard key={uuid()} review={review} removeReview = {handleRemoveReview}/>
+    )})
 
     return (
-      <div> 
+      <div className='your_review_container'> 
         {
-          console.log(userReviews.charities)
+          userReviews.map((review) => {
+            return(
+            <ReviewCard key={uuid()} review={review} removeReview = {handleRemoveReview}/>
+            )})
         }
-        {/* {reviewGen} */}
+
+          {/* {reviewGen} */}
+
       </div>
     )
   

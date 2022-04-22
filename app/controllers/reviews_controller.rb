@@ -19,6 +19,11 @@ class ReviewsController < ApplicationController
         end
     end 
 
+    def by_user_id
+        user_reviews = User.find(session[:user_id]).reviews
+        render json: user_reviews
+    end 
+
     def update 
 
     end 
